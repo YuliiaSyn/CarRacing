@@ -22,9 +22,8 @@
             <Circle id="car_2" fx:id="car_2" fill="DODGERBLUE" layoutX="592.0" layoutY="311.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle id="car_3" fx:id="car_3" fill="DODGERBLUE" layoutX="592.0" layoutY="48.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle id="car_4" fx:id="car_4" fill="DODGERBLUE" layoutX="50.0" layoutY="48.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button id="begin_Button" layoutX="35.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Simulate" />
+            <Button id="begin_Button" fx:id="simulate_Button" layoutX="35.0" layoutY="361.0" mnemonicParsing="false" onAction="#startSimulation" prefHeight="25.0" prefWidth="76.0" text="Simulate" />
             <Button id="exit_scene2" layoutX="136.0" layoutY="361.0" mnemonicParsing="false" onAction="#swapToScene1" prefHeight="25.0" prefWidth="76.0" text="Exit" />
-            <Rectangle fx:id="path" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="280.0" layoutX="45.0" layoutY="41.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="549.0" />
          </children>
     </AnchorPane>
   </children>

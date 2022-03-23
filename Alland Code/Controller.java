@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.scene.Node;
 import javafx.animation.PathTransition;
@@ -17,19 +18,25 @@ import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Controller implements Initializable{
+public class Controller{
     @FXML
-    private Button start_Button, exit_Button;
+    private Button start_Button, exit_Button, begin_Button;
     @FXML
     private Circle car_1, car_2, car_3, car_4;
     
     Path path;
+    Car car;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-
+    public void startSimulation(){
+        moveCar1();
+        moveCar2();
+        moveCar3();
+        moveCar4();
+    }
     public void swapToScene1(ActionEvent ae) throws IOException{
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
         stage = (Stage)((Node)ae.getSource()).getScene().getWindow();
@@ -45,21 +52,60 @@ public class Controller implements Initializable{
         stage.setScene(scene);
         stage.show();
         }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+    public void moveCar1(){
+        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(550, 0));
         path.getElements().add(new LineTo(550, -265));
         path.getElements().add(new LineTo(0, -265));
         path.getElements().add(new LineTo(0, 0));
-        PathTransition translate = new PathTransition();
-        translate.setNode(car_1);
-
-        translate.setDuration(Duration.millis(5000));
-        translate.setCycleCount(1);
-        translate.setPath(path);
-        translate.play();
+        PathTransition transition = new PathTransition();
+        transition.setNode(car_1);
+        transition.setDuration(Duration.seconds(10 - this.car.getSpeed()));
+        transition.setPath(path);
+        transition.play();
+    }
+    public void moveCar2(){
+        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        path = new Path();
+        path.getElements().add(new MoveTo(0, 0));
+        path.getElements().add(new LineTo(0, -265));
+        path.getElements().add(new LineTo(-550, -265));
+        path.getElements().add(new LineTo(-550, 5));
+        path.getElements().add(new LineTo(0, 0));
+        PathTransition transition = new PathTransition();
+        transition.setNode(car_2);
+        transition.setDuration(Duration.seconds(10 - this.car.getSpeed()));
+        transition.setPath(path);
+        transition.play();
+    }
+    public void moveCar3(){
+        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        path = new Path();
+        path.getElements().add(new MoveTo(0, 0));
+        path.getElements().add(new LineTo(-550, 0));
+        path.getElements().add(new LineTo(-550, 265));
+        path.getElements().add(new LineTo(0, 265));
+        path.getElements().add(new LineTo(0, 0));
+        PathTransition transition = new PathTransition();
+        transition.setNode(car_3);
+        transition.setDuration(Duration.seconds(10 - this.car.getSpeed()));
+        transition.setPath(path);
+        transition.play();
+    }
+    public void moveCar4(){
+        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        path = new Path();
+        path.getElements().add(new MoveTo(0, 0));
+        path.getElements().add(new LineTo(0, 265));
+        path.getElements().add(new LineTo(550, 265));
+        path.getElements().add(new LineTo(550, 0));
+        path.getElements().add(new LineTo(0, 0));
+        PathTransition transition = new PathTransition();
+        transition.setNode(car_4);
+        transition.setDuration(Duration.seconds(10 - this.car.getSpeed()));
+        transition.setPath(path);
+        transition.play();
     }
 }

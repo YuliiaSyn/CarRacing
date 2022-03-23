@@ -13,6 +13,7 @@ public class BuildGui extends Application {
    Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
    Scene scene = new Scene(root);
    stage.setScene(scene);
+   stage.setResizable(false);
    stage.show();
    
   } catch(Exception e) {
