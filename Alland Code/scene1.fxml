@@ -12,7 +12,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Button id="start_Button" layoutX="184.0" layoutY="295.0" mnemonicParsing="false" onAction="#swapToScene2" prefHeight="25.0" prefWidth="102.0" text="Start Race" />
-            <Button id="exit_Button" layoutX="382.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Exit Race" />
+            <Button id="exit_Button" fx:id="exit_Application" layoutX="382.0" layoutY="295.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="25.0" prefWidth="102.0" text="Exit " />
             <Label id="scene1_Label" layoutX="175.0" layoutY="44.0" prefHeight="21.0" prefWidth="290.0" text="Race Simulation by Alland, Kevin and Yuliia">
                <font>
                   <Font size="15.0" />

@@ -3,7 +3,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+/**
+ * @author Alland Timas
+ * initializes the gui and launches it
+ */
 public class BuildGui extends Application {
  
  @Override

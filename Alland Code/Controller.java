@@ -1,13 +1,11 @@
 import java.io.IOException;
-import java.net.URL;
 import java.util.Random;
-import java.util.ResourceBundle;
 import javafx.scene.Node;
 import javafx.animation.PathTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,7 +15,11 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+/**
+ * @author Alland Timas
+ * Controller class to add functionality to buttons and animate car objects
+ * Car objects are represented using circle objects
+ */
 public class Controller{
     @FXML
     private Button start_Button, exit_Button, begin_Button;
@@ -26,17 +28,18 @@ public class Controller{
     
     Path path;
     Car car;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    //paired to Start button to run methods
     public void startSimulation(){
         moveCar1();
         moveCar2();
         moveCar3();
         moveCar4();
     }
+    //swaps scenes between 
     public void swapToScene1(ActionEvent ae) throws IOException{
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
         stage = (Stage)((Node)ae.getSource()).getScene().getWindow();
@@ -52,6 +55,8 @@ public class Controller{
         stage.setScene(scene);
         stage.show();
         }
+
+
     public void moveCar1(){
         car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
         path = new Path();
@@ -107,5 +112,9 @@ public class Controller{
         transition.setDuration(Duration.seconds(10 - this.car.getSpeed()));
         transition.setPath(path);
         transition.play();
+    }
+
+    public void exitApplication(){
+        Platform.exit();
     }
 }
