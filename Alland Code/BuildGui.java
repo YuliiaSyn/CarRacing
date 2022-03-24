@@ -8,21 +8,21 @@ import javafx.scene.Scene;
  * initializes the gui and launches it
  */
 public class BuildGui extends Application {
- 
- @Override
- public void start(Stage stage) {
-  try {
-   
-   Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-   Scene scene = new Scene(root);
-   stage.setScene(scene);
-   stage.setResizable(false);
-   stage.show();
-   
-  } catch(Exception e) {
-   e.printStackTrace();
-  }
- } 
+
+    @Override
+    public void start(Stage stage) {
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(BuildGui.class.getResource("scene1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

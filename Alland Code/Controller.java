@@ -25,21 +25,20 @@ public class Controller{
     private Button start_Button, exit_Button, begin_Button;
     @FXML
     private Circle car_1, car_2, car_3, car_4;
-    
+
     Path path;
     Car car;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    //paired to Start button to run methods
     public void startSimulation(){
         moveCar1();
         moveCar2();
         moveCar3();
         moveCar4();
     }
-    //swaps scenes between 
     public void swapToScene1(ActionEvent ae) throws IOException{
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
         stage = (Stage)((Node)ae.getSource()).getScene().getWindow();
@@ -54,11 +53,9 @@ public class Controller{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        }
-
-
+    }
     public void moveCar1(){
-        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
+        car = new Car();
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(550, 0));
@@ -72,7 +69,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar2(){
-        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
+        car = new Car();
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(0, -265));
@@ -86,7 +83,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar3(){
-        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
+        car = new Car();
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(-550, 0));
@@ -100,7 +97,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar4(){
-        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
+        car = new Car();
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(0, 265));
@@ -114,7 +111,12 @@ public class Controller{
         transition.play();
     }
 
-    public void exitApplication(){
-        Platform.exit();
+    public void exitGame(ActionEvent actionEvent) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.close();
     }
 }
