@@ -18,6 +18,7 @@ public class Car {
     private String wheels;
     private String tyres;
     private String engine;
+    private int lapTime;
 
     //Creating random number generator
     private final Random rand = new Random();
@@ -147,23 +148,34 @@ public class Car {
             case 0:
                 speed = rand.nextInt(3);
                 setSpeed(speed);
+                setLapTime(10 - speed);
                 break;
 
             case 1:
                 speed = rand.nextInt(7);
                 setSpeed(speed);
+                setLapTime(10 - speed);
                 break;
             case 2:
                 speed = rand.nextInt(9);
                 setSpeed(speed);
+                setLapTime(10 - speed);
                 break;
             default:
                 speed = rand.nextInt(5);
                 setSpeed(speed);
+                setLapTime(10 - speed);
                 break;
         }
     }
 
+    public int getLapTime() {
+        return lapTime;
+    }
+
+    public void setLapTime(int lapTime) {
+        this.lapTime = lapTime;
+    }
 
     public String getWheels() {
         return wheels;
