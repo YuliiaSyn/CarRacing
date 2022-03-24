@@ -58,7 +58,7 @@ public class Controller{
 
 
     public void moveCar1(){
-        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(550, 0));
@@ -72,7 +72,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar2(){
-        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(0, -265));
@@ -86,7 +86,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar3(){
-        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(-550, 0));
@@ -100,7 +100,7 @@ public class Controller{
         transition.play();
     }
     public void moveCar4(){
-        car = new Car(new Random().nextInt(5), "wheel", 4, "engine");
+        car = new Car(new Random().nextInt(5), "wheel", "tires", "engine");
         path = new Path();
         path.getElements().add(new MoveTo(0, 0));
         path.getElements().add(new LineTo(0, 265));
