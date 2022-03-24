@@ -1,4 +1,3 @@
-
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -16,9 +15,10 @@ public class Car {
     //Declaring necessary car attributes
     private int speed;
     private String wheels;
-    private String tyres;
+    private String tires;
     private String engine;
     private int lapTime;
+    private String color;
 
     //Creating random number generator
     private final Random rand = new Random();
@@ -30,16 +30,17 @@ public class Car {
     public Car(int speed, String wheels, String tyres, String engine) {
         this.speed = speed;
         this.wheels = wheels;
-        this.tyres = tyres;
+        this.tires = tyres;
         this.engine = engine;
     }
 
     public Car() {
         randomCar();
+        color ="";
     }
 
     /**
-     * Method which creates an ArrayList of all possible wheels, tyres, and engines. Then uses random number
+     * Method which creates an ArrayList of all possible wheels, tires, and engines. Then uses random number
      * generator to assign one of each. */
     public void randomCar() {
 
@@ -59,8 +60,8 @@ public class Car {
         possibleTyres.add("Continental");
         possibleTyres.add("Yokohama");
         possibleTyres.add("BFGoodrich");
-        this.tyres = possibleTyres.get(rand.nextInt(4));
-        setTyres(tyres);
+        this.tires = possibleTyres.get(rand.nextInt(4));
+        setTyres(tires);
 
 
         ArrayList<String> possibleEngines = new ArrayList<String>();
@@ -74,11 +75,11 @@ public class Car {
 
 
 
-        /** A number value in the form of a 'tier' is assigned to each of the tyres, engine, and wheels based on
+        /** A number value in the form of a 'tier' is assigned to each of the tires, engine, and wheels based on
          * the randomly assigned attributes. The values are totaled up, and 3 thresholds then makeup a 'speedTier' of
          * 0, 1, or 2, which ultimately decides the cars 'top speed'
          *  */
-        String aTire = getTyres();
+        String aTire = getTires();
         String aEngine = getEngine();
         String aWheel = getWheels();
         int tireTier = 0, engineTier = 0, wheelTier = 0;
@@ -152,12 +153,12 @@ public class Car {
                 break;
 
             case 1:
-                speed = rand.nextInt(7);
+                speed = rand.nextInt(4);
                 setSpeed(speed);
                 setLapTime(10 - speed);
                 break;
             case 2:
-                speed = rand.nextInt(9);
+                speed = rand.nextInt(6);
                 setSpeed(speed);
                 setLapTime(10 - speed);
                 break;
@@ -186,12 +187,12 @@ public class Car {
     }
 
 
-    public String getTyres() {
-        return tyres;
+    public String getTires() {
+        return tires;
     }
 
     public void setTyres(String tyres) {
-        this.tyres = tyres;
+        this.tires = tyres;
     }
 
 
@@ -211,11 +212,14 @@ public class Car {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+    public void setColor(String color) {
+        this.color = color;
+    }
 
 
     @Override
     public String toString() {
-        return "Speed: " + speed + ", Wheels: " + wheels + ", Tyres: " + tyres + ", Engine: " + engine;
+        return " \nCar Color: " + color + ", Speed: " + speed + ", Wheels: " + wheels + ", Tires: " + tires + ", Engine: " + engine;
     }
 
 }
